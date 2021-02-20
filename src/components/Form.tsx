@@ -5,14 +5,14 @@ import { Author } from '../types/author';
 import { Book } from '../types/book';
 
 export const AuthorForm = ({ author }: { author: Author }) => {
-  const [firstName, setFirstName] = useState(author.first_name);
-  const [lastName, setLastName] = useState(author.last_name);
-  const [booksAttributes, setBooksAttributes] = useState(author.books_attributes);
+  const [firstName, setFirstName] = useState(author.firstName);
+  const [lastName, setLastName] = useState(author.lastName);
+  const [booksAttributes, setBooksAttributes] = useState(author.booksAttributes);
 
   useEffect(() => {
-    setFirstName(author.first_name);
-    setLastName(author.last_name);
-    setBooksAttributes(author.books_attributes);
+    setFirstName(author.firstName);
+    setLastName(author.lastName);
+    setBooksAttributes(author.booksAttributes);
   }, [author])
 
   const addBooksAttributes = () => {

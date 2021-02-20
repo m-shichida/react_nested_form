@@ -7,9 +7,9 @@ import { Author } from '../types/author';
 const authors = [
   {
     id: 1,
-    first_name: "佐藤",
-    last_name: "太郎",
-    books_attributes: [
+    firstName: "佐藤",
+    lastName: "太郎",
+    booksAttributes: [
       {
         id: 1,
         name: "本の名前",
@@ -19,9 +19,9 @@ const authors = [
   },
   {
     id: 2,
-    first_name: "田中",
-    last_name: "次郎",
-    books_attributes: [
+    firstName: "田中",
+    lastName: "次郎",
+    booksAttributes: [
       {
         id: 2,
         name: "本の名前",
@@ -31,9 +31,9 @@ const authors = [
   },
   {
     id: 3,
-    first_name: "鈴木",
-    last_name: "一郎",
-    books_attributes: [
+    firstName: "鈴木",
+    lastName: "一郎",
+    booksAttributes: [
       {
         id: 3,
         name: "本の名前",
@@ -45,9 +45,9 @@ const authors = [
 
 const defaultAuthor: Author = {
   id: 0,
-  first_name: '',
-  last_name: '',
-  books_attributes: []
+  firstName: '',
+  lastName: '',
+  booksAttributes: []
 }
 
 export const Authors = () => {
@@ -61,11 +61,11 @@ export const Authors = () => {
           <Card key={author.id || i}>
             <Card.Content style={{ display: 'flex' }}>
               <div>
-                <Card.Header>{author.first_name} {author.last_name}</Card.Header>
+                <Card.Header>{author.firstName} {author.lastName}</Card.Header>
                 <Card.Meta>書籍一覧</Card.Meta>
                 <Card.Description>
                   <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
-                    {author.books_attributes.map((book, i) => (
+                    {author.booksAttributes.map((book, i) => (
                       <li key={`books_attributes_${book.id || i}`}>{book.name}</li>
                     ))}
                   </ul>
