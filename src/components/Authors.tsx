@@ -3,7 +3,6 @@ import { Button, Card, Icon, Confirm } from 'semantic-ui-react'
 
 import { AuthorForm as Form } from './Form';
 import { Author } from '../types/author';
-import { Book } from '../types/book';
 
 const authors = [
   {
@@ -48,44 +47,12 @@ const defaultAuthor: Author = {
   id: 0,
   first_name: '',
   last_name: '',
-  books_attributes: [
-    {
-      id: 0,
-      name: '',
-      _destroy: false,
-    }
-  ]
+  books_attributes: []
 }
 
 export const Authors = () => {
   const [editingAuthor, setEditingAuthor] = useState(defaultAuthor);
   const [isConfirmOpen, setConfirmOpen] = useState(false);
-
-  const addAuthorBookForm = () => {
-    setEditingAuthor({
-      ...editingAuthor,
-      books_attributes: [
-        ...editingAuthor.books_attributes,
-        {
-          name: '',
-          _destroy: false,
-        }
-      ],
-    });
-  }
-
-  const removeAuthorBookForm = () => {
-    setEditingAuthor({
-      ...editingAuthor,
-      books_attributes: [
-        ...editingAuthor.books_attributes.slice(0, -1),
-        {
-          ...editingAuthor.books_attributes.slice(-1)[0],
-          _destroy: true,
-        }
-      ],
-    });
-  }
 
   return (
     <div style={{ padding: '24px', width: '1400px' }}>
@@ -131,7 +98,7 @@ export const Authors = () => {
         ))}
       </Card.Group>
       <div style={{ height: '30px' }}/>
-      <Form author={editingAuthor} addBookFormHandleClick={addAuthorBookForm} removeBookFormHandleClick={removeAuthorBookForm} handleChange={setEditingAuthor} />
+      <Form author={editingAuthor} />
     </div>
   );
 }
