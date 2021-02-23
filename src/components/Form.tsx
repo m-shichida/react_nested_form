@@ -53,9 +53,11 @@ export const AuthorForm = ({ author }: { author: Author }) => {
     setBooksAttributes(result);
   }
 
+  const saveAuthor = async () => {
+  }
+
   return (
     <Form style={{ width: '400px' }}>
-      <input type='hidden' value={author.id} />
       <Form.Group widths='equal'>
         <Form.Input fluid label='姓' placeholder='姓' value={firstName} onChange={(_, data: InputOnChangeData) => setFirstName(data.value)} />
         <Form.Input fluid label='名' placeholder='名' value={lastName} onChange={(_, data: InputOnChangeData) => setLastName(data.value)} />

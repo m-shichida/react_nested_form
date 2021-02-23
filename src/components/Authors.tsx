@@ -25,6 +25,12 @@ export const Authors = () => {
     authorsFunc();
   }, []);
 
+  const deleteAuthor = async (id: number) => {
+    const res = await AuthorRequest.deleteAuthor(id);
+    setAuthors(res.data);
+    setConfirmOpen(false)
+  }
+
   return (
     <div style={{ padding: '24px', width: '1400px' }}>
       <Card.Group>
@@ -62,7 +68,7 @@ export const Authors = () => {
                   cancelButton='キャンセル'
                   open={isConfirmOpen}
                   onCancel={() => setConfirmOpen(false)}
-                  onConfirm={() => setConfirmOpen(false)}
+                  onConfirm={() => deleteAuthor(author.id)}
                 />
               </div>
             </Card.Content>

@@ -30,4 +30,30 @@ export default {
                                         });
     return response;
   },
+  async deleteAuthor(id: number): Promise<SuccessResult<any> | ErrorResult> {
+    const response = await axiosInstance.delete(`${ authors_url }/${ id }`)
+                                        .then((response) => {
+                                          if (response.status === 200) {
+                                            return {
+                                              error: false,
+                                              data: response?.data,
+                                              errorMessages: [],
+                                            }
+                                          } {
+                                            return {
+                                              error: false,
+                                              data: null, //
+                                              errorMessages: response?.data,
+                                            }
+                                          }
+                                        })
+                                        .catch(() => {
+                                          return {
+                                            error: true,
+                                            data: null,
+                                            errorMessages: ['システムエラー']
+                                          }
+                                        });
+    return response;
+  }
 }
