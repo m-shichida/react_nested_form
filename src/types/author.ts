@@ -2,7 +2,7 @@ import { Book } from "./book";
 
 export interface Author {
   id?: number,
-  firstName: string,
-  lastName: string,
-  booksAttributes: Book[]
+  first_name: string,
+  last_name: string,
+  books_attributes: Book[]
 }
